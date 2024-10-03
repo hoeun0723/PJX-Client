@@ -1,0 +1,132 @@
+/* Variables declaration */
+/* prettier-ignore */
+  
+  .rdp-root * {
+    box-sizing: border-box;
+    
+  }
+  .rdp-root {
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+    margin: 0 1.6rem;
+  }
+
+  .rdp-day {
+    width: 2.75rem;
+  height: 2.75rem;
+  text-align: center;
+    color: transparent; /* 숫자를 안 보이게 설정 */
+    
+}
+  
+  .rdp-day_button {
+    margin: 1rem 0.9rem;
+    background-color: #E9EAF0; 
+    border-radius: 8px;
+    border: none;
+    padding: 0;
+    width: 3.2rem; 
+    height: 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Pretendard;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+  }
+  
+  .rdp-day_button:disabled {
+    cursor: revert;
+  }
+  
+  .rdp-caption_label {
+    z-index: 1;
+  
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+  
+    white-space: nowrap;
+    border: 0;
+  }
+  
+
+  .rdp-month_caption {
+    visibility: hidden;
+  }
+  
+  .rdp-months {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width:100%;
+  }
+  
+  .rdp-month_grid {
+    border-collapse: collapse;
+  }
+  
+  .rdp-nav {
+        display: none; 
+  
+  }
+  
+  .rdp-weekday {
+    text-align: center;
+    font-family: Pretendard;
+    font-size: 12px; 
+    font-style: normal; 
+    font-weight: 500; 
+    line-height: 140%; 
+    color: var(--gray-600, #5E6066);
+  }
+  
+  
+  
+  
+ 
+  
+  .rdp-selected {
+    color: white !important; /* 선택된 날짜는 하얀색 글씨로 설정 */
+}
+  
+.rdp-selected .rdp-day_button {
+    background-color: black;
+    color: white !important;
+    border: none;
+    border-radius: 8px;
+    width: 3.2rem;
+    height: 3.2rem;
+}
+  
+ 
+  
+  .rdp-hidden {
+    visibility: hidden;
+  }
+  
+  
+ 
+  
+  
+  
+  .rdp-range_middle .rdp-day_button {
+    border-color: transparent;
+    border: unset;
+    border-radius: unset;
+  }
+  
+  
+  
+  
+  .rdp-range_start.rdp-range_end {
+    background: revert;
+  }
+  
+  .rdp-focusable {
+    cursor: pointer;
+  }

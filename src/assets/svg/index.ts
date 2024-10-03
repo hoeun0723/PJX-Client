@@ -1,2 +1,13 @@
+export { default as IcPen } from './IcPen';
+export { default as IcSearch } from './IcSearch';
+export { default as IcExpensesActive } from './IcExpensesActive';
+export { default as IcFeedUnActive } from './IcFeedUnActive';
+export { default as IcAlarmUnActive } from './IcAlarmUnActive';
+export { default as IcMyUnActive } from './IcMyUnActive';
+export { default as IcFeedActive } from './IcFeedActive';
+export { default as IcAlarmActive } from './IcAlarmActive';
+export { default as IcMyActive } from './IcMyActive';
+export { default as IcExpensesUnActive } from './IcExpensesUnActive';
+export { default as IcNoneEmoz } from './IcNoneEmoz';
 export { default as IcTitleIcon } from './IcTitleIcon';
 export { default as IcKakaoButton } from './IcKakaoButton';
