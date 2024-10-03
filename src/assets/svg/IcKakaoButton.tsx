@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SvgIcKakaoButton = () => (
+const IcKakaoButton = () => (
   <svg width="343" height="52" viewBox="0 0 343 52" fill="none" xmlns="http://www.w3.org/2000/svg">
     <rect width="343" height="52" rx="8" fill="#FEE500"/>
     <path d="M77.2634 15.5001C70.9502 15.5001 65.8312 19.4327 65.8312 24.2866C65.8312 27.4045 67.9514 30.142 71.1355 31.7044L70.0583 35.6167C70.0171 35.7369 70.0513 35.864 70.1407 35.9506C70.2023 36.011 70.2846 36.0443 70.3738 36.0443C70.4427 36.0443 70.5111 36.0176 70.5729 35.9709L75.2048 32.9262C75.8775 33.0196 76.5637 33.073 77.2634 33.073C83.5765 33.073 88.6961 29.1406 88.6961 24.2866C88.6961 19.4327 83.5765 15.5001 77.2634 15.5001Z" fill="#3C1E1E"/>
@@ -8,4 +8,4 @@ const SvgIcKakaoButton = () => (
   </svg>
 );
 
-export default SvgIcKakaoButton;
+export default IcKakaoButton;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SvgIcTitleIcon = () => (
+const IcTitleIcon = () => (
   <svg width="127" height="134" viewBox="0 0 127 134" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M127 71.7349C127 106.097 98.5701 133.954 63.5 133.954C28.4299 133.954 0 106.097 0 71.7349C0 37.3723 28.4299 23.4236 63.5 23.4236C98.5701 23.4236 127 37.3723 127 71.7349Z" fill="#FFAC64"/>
     <path d="M22.0488 10.5833C22.6079 8.18564 25.6576 7.44504 27.2541 9.3192L45.5593 30.8081C47.0086 32.5095 46.1554 35.1414 43.9835 35.6688L19.2676 41.6709C17.0957 42.1983 15.1304 40.2509 15.638 38.0743L22.0488 10.5833Z" fill="#FFAC64"/>
@@ -15,4 +15,4 @@ const SvgIcTitleIcon = () => (
   </svg>
 );
 
-export default SvgIcTitleIcon;
+export default IcTitleIcon;

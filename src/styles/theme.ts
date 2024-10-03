@@ -71,7 +71,6 @@ const colors = {
   },
 };
 
-
 const fonts = {
   m_10_500: css`
     font-size: 10px;
@@ -82,6 +81,12 @@ const fonts = {
     font-size: 10px;
     font-weight: 600;
     font-family: "Pretendard SemiBold";
+  `,
+  m_11_400: css`
+    font-size: 11px;
+    font-weight: 400;
+    font-family: "Pretendard-Medium";
+    line-height: normal;
   `,
   m_11_500: css`
     font-size: 11px;
@@ -168,6 +173,11 @@ const fonts = {
     font-weight: 400;
     font-family: "Pretendard Regular";
   `,
+  b_20_600: css`
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Pretendard Bold";
+  `,
   sb_22_600: css`
     font-size: 22px;
     font-weight: 600;
@@ -196,7 +206,7 @@ const fonts = {
   sb_40_600: css`
     font-size: 40px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
     line-height: normal;
 `,
 };
