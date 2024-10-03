@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface ProgressBarFillProps {
-    widthPercentage: number;
+    widthPercentage: VoidFunction;
 }
 
 export const IcPenWrapper = styled.div`

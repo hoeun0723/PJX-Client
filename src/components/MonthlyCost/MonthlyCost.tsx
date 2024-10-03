@@ -4,6 +4,9 @@ import * as S from './MonthlyCost.style';
 const MonthlyCost = () => {
     const [currentAmount, setCurrentAmount] = useState(50000);
     const maxGoal = 100000;
+    const handleAmount = () => {
+        setCurrentAmount((currentAmount / maxGoal) * 100);
+    }
     return (
         <>
         <S.IcPenWrapper><IcPen/></S.IcPenWrapper>
@@ -15,7 +18,7 @@ const MonthlyCost = () => {
                 <p>목표 지출 <span> {maxGoal}만원</span></p>
             </S.MonthlyGoalWrapper>
             <S.ProgressBarWrapper>
-                <S.ProgressBarFill widthPercentage={(currentAmount / maxGoal) * 100} />
+                <S.ProgressBarFill widthPercentage={handleAmount} />
             </S.ProgressBarWrapper>
         </>
     )
