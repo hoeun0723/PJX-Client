@@ -4,33 +4,70 @@ import { css } from 'styled-components';
 const colors = {
   normal: {
     white: '#FFFFFF',
-    background_white: '#F9F9F9',
     black: '#000000',
   },
-  pink: {
-    background_pink: '#FFBBCB',
-    dark_pink: '#FF7575',
-    btn_hover_pink: '#FFA8BC',
-    btn_pink: '#FFDFE7',
-    white_pink: '#FFEEF2',
-    warm_pink: '#FFA2A2',
-    red_pink: '#FF5959',
+
+  foregroundRgb: '0, 0, 0',
+  backgroundStartRgb: '214, 219, 220',
+  backgroundEndRgb: '255, 255, 255',
+
+  dimmed: 'rgba(0, 0, 0, 0.24)',
+
+  kakao: {
+    yellow: '#fee500',
+    brown: '#3c1e1e',
   },
-  feeling: {
-    happy_yellow: '#FFF1A8',
-    sad_blue: '#B4F2FF',
-    surprised_orange: '#FFCA99',
-    relax_green: '#B9FFB3',
-    worried_purple: '#C3C9FF',
-    angry_pink: '#FFB6B6',
-  },
-  yellow: {
-    background_yellow: '#FFE768',
-  },
+
   gray: {
-    white_gray: '#D9D9D9',
-    dark_gray: '#CBC7C7',
-    text_gray: '#858585',
+    '700': '#27262e',
+    '600': '#5e6066',
+    '500': '#8c9097',
+    '400': '#bec3cc',
+    '300': '#d5d9e0',
+    '200': '#e9eaf0',
+    '100': '#f3f5f9',
+    '50': '#f8f9fc',
+  },
+
+  primary: {
+    default: '#f67402',
+    hover: '#f04f1e',
+    disabled: '#ffdace',
+    bg: '#ffece8',
+    bgDisabled: '#fff7f5',
+  },
+
+  category: {
+    yellow: '#ffeb3a',
+    mint: '#a1f9e4',
+    navy: '#9ab6ff',
+    lightRed: '#ff8585',
+    orange: '#ffa858',
+    lightOrange: '#ff774e',
+    brown: '#e5aa99',
+    lightPink: '#ffaafc',
+    aeroBlue: '#afffc6',
+    lightGreen: '#66d8a1',
+    sky: '#7cd0ff',
+    lightPurple: '#d2afff',
+    lightGray: '#C5C5C5',
+  },
+
+  shadow: {
+    bottom: {
+      s: '0px 1px 4px rgba(42, 39, 65, 0.08)',
+      m: '0px 2px 10px rgba(42, 39, 65, 0.1)',
+      l: '0px 4px 8px 3px rgba(42, 39, 65, 0.1)',
+      xl: '0px 8px 16px 2px rgba(42, 39, 65, 0.18)',
+      '2xl': '0px 10px 18px 4px rgba(42, 39, 65, 0.22)',
+    },
+    top: {
+      s: '0px -1px 4px rgba(42, 39, 65, 0.08)',
+      m: '0px -2px 10px rgba(42, 39, 65, 0.1)',
+      l: '0px -4px 8px 3px rgba(42, 39, 65, 0.1)',
+      xl: '0px -8px 16px 2px rgba(42, 39, 65, 0.18)',
+      '2xl': '0px -10px 18px 4px rgba(42, 39, 65, 0.22)',
+    },
   },
 };
 
@@ -38,138 +75,140 @@ const fonts = {
   m_10_500: css`
     font-size: 10px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_10_600: css`
     font-size: 10px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
+  `,
+  m_11_400: css`
+    font-size: 11px;
+    font-weight: 400;
+    font-family: "Pretendard-Medium";
+    line-height: normal;
   `,
   m_11_500: css`
     font-size: 11px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_12_400: css`
     font-size: 12px;
     font-weight: 400;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   r_12_400: css`
     font-size: 12px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_12_500: css`
     font-size: 12px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   r_12_500: css`
     font-size: 12px;
     font-weight: 500;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   m_13_500: css`
     font-size: 13px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_13_600: css`
     font-size: 13px;
     font-weight: 600;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_13_600: css`
     font-size: 13px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
-  `,
-  r_14_400: css`
-    font-size: 14px;
-    font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard SemiBold";
   `,
   m_14_500: css`
     font-size: 14px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_14_600: css`
     font-size: 14px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   m_15_500: css`
     font-size: 15px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_15_600: css`
     font-size: 15px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   r_16_400: css`
     font-size: 16px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
-  `,
-  m_16_500: css`
-    font-size: 16px;
-    font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Regular";
   `,
   sb_16_600: css`
     font-size: 16px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   b_16_700: css`
     font-size: 16px;
     font-weight: 700;
-    font-family: "Pretendard-Bold";
+    font-family: "Pretendard Bold";
   `,
   r_18_400: css`
     font-size: 18px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
   `,
   r_18_600: css`
     font-size: 18px;
     font-weight: 400;
-    font-family: "Pretendard-Regular";
+    font-family: "Pretendard Regular";
+  `,
+  b_20_600: css`
+    font-size: 20px;
+    font-weight: 600;
+    font-family: "Pretendard Bold";
   `,
   sb_22_600: css`
     font-size: 22px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   sb_25_600: css`
     font-size: 25px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
   m_30_500: css`
     font-size: 30px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
-  `,
-  m_34_500: css`
-    font-size: 34px;
-    font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   m_35_500: css`
     font-size: 35px;
     font-weight: 500;
-    font-family: "Pretendard-Medium";
+    font-family: "Pretendard Medium";
   `,
   sb_35_600: css`
     font-size: 35px;
     font-weight: 600;
-    font-family: "Pretendard-SemiBold";
+    font-family: "Pretendard SemiBold";
   `,
+  sb_40_600: css`
+    font-size: 40px;
+    font-weight: 600;
+    font-family: "Pretendard SemiBold";
+    line-height: normal;
+`,
 };
 
 const theme = { mixin, colors, fonts };
