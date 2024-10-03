@@ -59,6 +59,7 @@ const Calendar = ({ selectedDate, setSelectedDate }: { selectedDate: Date, setSe
                 weekStartsOn={1}
                 month={currentMonth}
                 onMonthChange={setCurrentMonth}
+                required
             />
         </S.CalendarWrapper>
     );
