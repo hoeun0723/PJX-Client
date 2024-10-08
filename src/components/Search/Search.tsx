@@ -14,15 +14,17 @@ const Search = () => {
         setNickname(value);
     };
     return (
-        <S.SearchWrapper>
+        <S.SearchWrapper hasNickname={!!nickname}>
             <S.BarWrapper>
-            <S.BackButton onClick={()=> navigate(-1)}>
+            {nickname 
+                ?<S.BackButton onClick={()=> navigate(-1)}>
                 <IcBack />
             </S.BackButton>
+            :null}
             <SearchingBar value={nickname} onChange={handleInputChange}/>
             </S.BarWrapper>
             {nickname 
-                ? (nickName === nickname ? <SearchPerson/> : <SearchNone/>) 
+                ? (nickName === nickname ? <SearchPerson nickname={nickname}/> : <SearchNone nickname={nickname}/>) 
                 : null}
         </S.SearchWrapper>
     )
