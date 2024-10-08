@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FeedWrapper = styled.div`
-${({ theme: { mixin } }) => mixin.flexCenter({ })};
+display: flex;
 ${({ theme }) => theme.fonts.m_30_500};
     color: ${({ theme }) => theme.colors.gray[700]};
     width: 100%;
