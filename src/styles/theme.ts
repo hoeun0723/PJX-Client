@@ -128,6 +128,11 @@ const fonts = {
     font-weight: 600;
     font-family: "Pretendard SemiBold";
   `,
+  m_14_400: css`
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Pretendard Medium";
+  `,
   m_14_500: css`
     font-size: 14px;
     font-weight: 500;
@@ -152,6 +157,11 @@ const fonts = {
     font-size: 16px;
     font-weight: 400;
     font-family: "Pretendard Regular";
+  `,
+  m_16_500: css`
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Pretendard Medium";
   `,
   sb_16_600: css`
     font-size: 16px;

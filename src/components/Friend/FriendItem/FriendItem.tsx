@@ -23,7 +23,7 @@ const FriendItem = ({ children }: FriendItemProps) => {
         {children}
       </S.NicknameBox>
       {
-        !isClick ? <IcPlus /> : <IcCheck />
+        !isClick ? <IcPlus /> : <IcCheck fill='#FF5B29'/>
       }
     </S.FriendItemWrapper>
   );

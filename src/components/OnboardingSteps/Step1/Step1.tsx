@@ -2,7 +2,7 @@ import StepProps from '../../../types/StepPropsType';
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import Dropbox from '../../common/Dropbox/Dropbox';
 import OnboardingInput from '../OnboardingInput/OnboardingInput';
-import OnboardingTitle from '../OnboardingTitle/OnboardingTitle';
+import Title from '../../common/Title/Title';
 import * as S from './Step1.style';
 import React, { ChangeEvent, useState } from 'react';
 
@@ -29,11 +29,11 @@ function Step1 ({ onNext }: StepProps){
 
   return(
     <S.Step1Wrapper>
-      <OnboardingTitle>
+      <Title>
         📧 <br /> 
         본인 이메일이 맞다면 <br />
         아래 확인 버튼을 눌러주세요
-      </OnboardingTitle>
+      </Title>
       <OnboardingInput
         placeholder='이메일'
         name={value}
