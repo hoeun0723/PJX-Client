@@ -9,6 +9,8 @@ import Alarm from '../pages/Alarm/Alarm';
 import Mypage from '../pages/Mypage/Mypage';
 import LayoutWithFooter from '../layouts/LayoutWithFooter';
 import WriteCost from '../pages/WriteCost/WriteCost';
+import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
+import Profile from '../pages/Mypage/Profile/Profile';
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,14 @@ const router = createBrowserRouter([
       {
         path: '/write-cost',
         element: <WriteCost />
+      },
+      {
+        path: '/mypage-friends',
+        element: <MypageFriends />
+      },
+      {
+        path: '/mypage-profile',
+        element: <Profile />,
       },
     ],
   },

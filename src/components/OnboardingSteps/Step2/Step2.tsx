@@ -1,7 +1,7 @@
 import StepProps from '../../../types/StepPropsType';
 import BtnSmall from '../../common/Button/SmallButton/BtnSmall';
 import OnboardingInput from '../OnboardingInput/OnboardingInput';
-import OnboardingTitle from '../OnboardingTitle/OnboardingTitle';
+import Title from '../../common/Title/Title';
 import * as S from './Step2.style';
 import { ChangeEvent, useState } from 'react';
 import React from 'react';
@@ -18,11 +18,11 @@ function Step2 ({ onNext }: StepProps){
   };
   return(
     <S.Step2Wrapper>
-      <OnboardingTitle>
+      <Title>
         😎 <br /> 
         본인을 확인할 수 있는 <br />
         닉네임을 입력해 주세요
-      </OnboardingTitle>
+      </Title>
       <OnboardingInput 
         placeholder='닉네임을 입력해주세요'
         name={value}
