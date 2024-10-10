@@ -9,7 +9,7 @@ const MonthlyCost = () => {
     }
     return (
         <>
-        <S.IcPenWrapper><IcPen/></S.IcPenWrapper>
+        <S.IcPenWrapper><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
             <S.MonthlyPaidWrapper>
                 <p><span>닉네임</span> 이번달 지출</p>
                 {currentAmount}원

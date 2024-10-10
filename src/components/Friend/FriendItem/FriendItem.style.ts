@@ -25,8 +25,4 @@ export const NicknameBox = styled.div`
   ${({ theme }) => theme.fonts.sb_13_600};
   width: 22.7rem;
   height: 3.5rem;
-  p {
-    ${({ theme }) => theme.fonts.m_11_400};
-    color: ${({ theme }) => theme.colors.gray[500]};
-  }
 `;
