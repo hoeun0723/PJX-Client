@@ -1,4 +1,4 @@
-import React, { ReactComponentElement, useState } from 'react';
+import React, { useState } from 'react';
 import * as S from './EmotionSelect.style';
 import { IcAngry, IcHappy, IcPlusRound, IcSad, IcSurprised, IcThinking } from '../../assets/svg';
 
