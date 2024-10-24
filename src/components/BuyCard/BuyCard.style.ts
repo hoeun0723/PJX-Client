@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const BuyCardWrapper = styled.div`
 ${({ theme: { mixin } }) => mixin.flexBox({direction: 'column',align: 'flex-start'})};
-width: 34.3rem;
-padding: 0 0.4rem;
+width: 100%;
+padding: 0 2rem;
 gap: 1rem;
 `;
 

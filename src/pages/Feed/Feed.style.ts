@@ -5,7 +5,6 @@ ${({ theme: { mixin } }) => mixin.flexBox({direction: 'column', align: 'center'}
 
     width: 100%;
     height: 100vh;
-    padding: 0 1.6rem;
     gap: 2rem;
 `;
 
