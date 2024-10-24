@@ -22,3 +22,4 @@ export { default as IcPlusRound } from './IcPlusRound.tsx';
 export { default as IcSad } from './IcSad.tsx';
 export { default as IcSurprised } from './IcSuprised.tsx';
 export { default as IcThinking } from './IcThinking.tsx';
+export { default as IcNone } from './IcNone.tsx';
