@@ -22,4 +22,6 @@ export { default as IcPlusRound } from './IcPlusRound.tsx';
 export { default as IcSad } from './IcSad.tsx';
 export { default as IcSurprised } from './IcSuprised.tsx';
 export { default as IcThinking } from './IcThinking.tsx';
+export { default as IcWriteSelf } from './IcWriteSelf.tsx';
+export { default as IcWriteAi } from './IcWriteAi.tsx';
 export { default as IcNone } from './IcNone.tsx';
