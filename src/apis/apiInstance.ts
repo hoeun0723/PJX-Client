@@ -39,7 +39,7 @@ export const serverInstance = axios.create({
   });
 
   function interceptorResponseFulfilled(res: AxiosResponse) {
-    return res.status >= 200 && res.status < 300 ? res.data : Promise.reject(res.data);
+    return res.status >= 200 && res.status < 300 ? res : Promise.reject(res);
   }
   
   function interceptorResponseRejected(error: AxiosError) {
