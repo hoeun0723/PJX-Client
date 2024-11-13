@@ -11,6 +11,8 @@ import LayoutWithFooter from '../layouts/LayoutWithFooter';
 import WriteType from '../pages/WriteType/WriteType';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
+import Loading from '../pages/Loading/Loading';
+import LoginCallback from '../components/LoginCallback/LoginCallback';
 import WriteCost from '../pages/WriteCost/WriteCost';
 
 const router = createBrowserRouter([
@@ -21,7 +23,16 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Start />
-      },{
+      },
+      {
+        path: '/loading',
+        element: <Loading />
+      },
+      {
+        path: '/auth/kakao',
+        element: <LoginCallback />,
+      },
+      {
         path: '/onboarding',
         element: <Onboarding />,
       },

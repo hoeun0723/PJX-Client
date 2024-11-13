@@ -16,11 +16,11 @@ export const checkCurrentMode = () => {
   };
 
   /*이 authInstance는 추후 로그인 작업에서 필요할 경우 사용하세요! header 에 어떤 값을 넘겨줘야하는지 명세서 확인하고 수정하기!*/
-  export const authInstance = axios.create({
-    baseURL: import.meta.env.VITE_APP_SERVER_BASE_URL,
-    withCredentials: true,
-    headers: {},
-  });
+export const authInstance = axios.create({
+  baseURL: import.meta.env.VITE_APP_SERVER_BASE_URL,
+  withCredentials: true,
+  headers: {},
+});
 
 export const serverInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_SERVER_BASE_URL,
