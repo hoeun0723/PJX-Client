@@ -13,7 +13,7 @@ function Start (){
     window.location.href = kakaoUrl;
   };
   const handleNavigate = () => {
-    navigate('/home');
+    navigate('/onboarding');
   };
 
   return(

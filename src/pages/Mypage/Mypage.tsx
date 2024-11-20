@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import mockImage from '../../assets/profileMockImage.png';
+//import mockImage from '../../assets/profileMockImage.png';
 import { IcCheck, IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoContext';
