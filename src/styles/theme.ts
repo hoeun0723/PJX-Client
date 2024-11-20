@@ -138,6 +138,11 @@ const fonts = {
     font-weight: 500;
     font-family: "Pretendard Medium";
   `,
+  r_14_400: css`
+    font-size: 14px;
+    font-weight: 400;
+    font-family: "Pretendard Regular";
+  `,
   sb_14_600: css`
     font-size: 14px;
     font-weight: 600;

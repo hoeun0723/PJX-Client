@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const WriteCostWrapper = styled.div`
-${({ theme: { mixin } }) => mixin.flexCenter({ })};
-${({ theme }) => theme.fonts.m_30_500};
-    color: ${({ theme }) => theme.colors.gray[700]};
-    width: 100%;
-    height: 100vh;
+  ${({ theme: { mixin }}) => mixin.flexCenter({})};
+  width: 100%;
+  padding: 1.4rem 1.6rem 3.6rem 1.6rem;
 `;

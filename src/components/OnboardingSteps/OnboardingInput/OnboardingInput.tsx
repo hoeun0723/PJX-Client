@@ -7,20 +7,20 @@ interface OnboardingInputProps {
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   children?: React.ReactNode
+  isError: boolean;
 }
 
-function OnboardingInput ({ placeholder, name, value, onChange, children }: OnboardingInputProps){
+function OnboardingInput ({ placeholder, name, value, onChange, isError }: OnboardingInputProps){
   return(
     <S.OnboardingInputWrapper>
-      <S.InputAreaBox>
-        <S.TextInput 
-          placeholder={placeholder}
-          name={name}
-          value={value}
-          onChange={onChange}
-        />
-        {children}
-      </S.InputAreaBox>
+      <S.TextInput 
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+        $isError={isError}
+      />
+      {isError && <S.ErrorText>동일한 닉네임이 있어요</S.ErrorText>}
     </S.OnboardingInputWrapper>
   );
 }

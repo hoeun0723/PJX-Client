@@ -1,11 +1,13 @@
 import React from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import mockImage from '../../assets/profileMockImage.png';
+//import mockImage from '../../assets/profileMockImage.png';
 import { IcCheck, IcPen, IcRight, IcSearch } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
+import UserInfoContext, { UserInfoProvider } from '../../context/User/UserInfoContext';
 
 const Mypage = () => {
+  const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
   const options = [
     {
@@ -43,41 +45,43 @@ const Mypage = () => {
   };
 
   return (
-    <S.MyPageWrapper>
-      <Title isLarge={false}>마이페이지</Title>
-      <S.ProfileBox>
-        <S.ProflieImage src={mockImage}/>
-        <S.NicknameBox onClick={() => handleProfile()}>
-          닉네임
-          <S.IconBox>
-            <IcPen width={'1.8rem'} height={'1.8rem'}/>
-          </S.IconBox>
-        </S.NicknameBox>
-      </S.ProfileBox>
-      <S.SummaryBox>
-        {
-          summaries.map((summary) => (
-            <p key={summary.label}>
-              <S.SummarySpan isDays={summary.label === 'days'}>
-                {summary.value}
-              </S.SummarySpan>
-              {summary.text}
-            </p>
-          ))
-        }
-      </S.SummaryBox>
-      <S.NavigateField>
-        {
-          options.map((option) => (
-            <S.NavigateBox key={option.text} onClick={option.onclick}>
-              {option.icon}
-              <p>{option.text}</p>
-              <IcRight />
-            </S.NavigateBox>
-          ))
-        }
-      </S.NavigateField>
-    </S.MyPageWrapper>
+    <UserInfoProvider>
+      <S.MyPageWrapper>
+        <Title isLarge={false}>마이페이지</Title>
+        <S.ProfileBox>
+          <S.ProflieImage src={userInfo.profileImage}/>
+          <S.NicknameBox onClick={() => handleProfile()}>
+            {userInfo.nickname}
+            <S.IconBox>
+              <IcPen width={'1.8rem'} height={'1.8rem'}/>
+            </S.IconBox>
+          </S.NicknameBox>
+        </S.ProfileBox>
+        <S.SummaryBox>
+          {
+            summaries.map((summary) => (
+              <p key={summary.label}>
+                <S.SummarySpan isDays={summary.label === 'days'}>
+                  {summary.value}
+                </S.SummarySpan>
+                {summary.text}
+              </p>
+            ))
+          }
+        </S.SummaryBox>
+        <S.NavigateField>
+          {
+            options.map((option) => (
+              <S.NavigateBox key={option.text} onClick={option.onclick}>
+                {option.icon}
+                <p>{option.text}</p>
+                <IcRight />
+              </S.NavigateBox>
+            ))
+          }
+        </S.NavigateField>
+      </S.MyPageWrapper>
+    </UserInfoProvider>
   );
 };
 

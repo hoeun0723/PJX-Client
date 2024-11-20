@@ -8,9 +8,12 @@ import Feed from '../pages/Feed/Feed';
 import Alarm from '../pages/Alarm/Alarm';
 import Mypage from '../pages/Mypage/Mypage';
 import LayoutWithFooter from '../layouts/LayoutWithFooter';
-import WriteCost from '../pages/WriteCost/WriteCost';
+import WriteType from '../pages/WriteType/WriteType';
 import MypageFriends from '../pages/Mypage/MypageFriends/MypageFriends';
 import Profile from '../pages/Mypage/Profile/Profile';
+import Loading from '../pages/Loading/Loading';
+import LoginCallback from '../components/LoginCallback/LoginCallback';
+import WriteCost from '../pages/WriteCost/WriteCost';
 
 const router = createBrowserRouter([
   {
@@ -20,13 +23,34 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Start />
-      },{
+      },
+      {
+        path: '/loading',
+        element: <Loading />
+      },
+      {
+        path: '/auth/kakao',
+        element: <LoginCallback />,
+      },
+      {
         path: '/onboarding',
         element: <Onboarding />,
       },
       {
+        path: '/write-type',
+        element: <WriteType />
+      },
+      {
         path: '/write-cost',
-        element: <WriteCost />
+        element: <WriteCost />,
+      },
+      {
+        path: '/mypage-friends',
+        element: <MypageFriends />
+      },
+      {
+        path: '/mypage-profile',
+        element: <Profile />,
       },
       {
         path: '/mypage-friends',

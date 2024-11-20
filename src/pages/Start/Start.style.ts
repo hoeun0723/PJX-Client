@@ -7,6 +7,8 @@ export const StartWrapper = styled.div`
 `;
 export const TitleText = styled.span`
   ${({ theme }) => theme.fonts.sb_40_600};
+  margin-top: 3rem;
+  margin: 1rem;
 `;
 export const SubtitleText = styled.span`
   ${({ theme }) => theme.fonts.sb_25_600};

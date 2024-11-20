@@ -1,18 +1,35 @@
 import React from 'react';
-
-const IcTitleIcon = () => (
-  <svg width="127" height="134" viewBox="0 0 127 134" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M127 71.7349C127 106.097 98.5701 133.954 63.5 133.954C28.4299 133.954 0 106.097 0 71.7349C0 37.3723 28.4299 23.4236 63.5 23.4236C98.5701 23.4236 127 37.3723 127 71.7349Z" fill="#FFAC64"/>
-    <path d="M22.0488 10.5833C22.6079 8.18564 25.6576 7.44504 27.2541 9.3192L45.5593 30.8081C47.0086 32.5095 46.1554 35.1414 43.9835 35.6688L19.2676 41.6709C17.0957 42.1983 15.1304 40.2509 15.638 38.0743L22.0488 10.5833Z" fill="#FFAC64"/>
-    <path d="M99.1207 10.2102C100.649 8.28028 103.724 8.91156 104.368 11.2877L111.756 38.5324C112.341 40.6895 110.446 42.7058 108.257 42.2562L83.3425 37.1402C81.1532 36.6907 80.2066 34.0909 81.5942 32.3389L99.1207 10.2102Z" fill="#FFAC64"/>
-    <ellipse cx="63" cy="94" rx="22" ry="15" fill="#F67402"/>
-    <ellipse cx="57" cy="96" rx="2" ry="5" fill="black"/>
-    <ellipse cx="67" cy="96" rx="2" ry="5" fill="black"/>
-    <ellipse cx="50.5" cy="71" rx="3.5" ry="5" fill="black"/>
-    <ellipse cx="49.5" cy="68.5" rx="1.5" ry="2.5" fill="white"/>
-    <ellipse cx="73.5" cy="71" rx="3.5" ry="5" fill="black"/>
-    <ellipse cx="72.5" cy="68.5" rx="1.5" ry="2.5" fill="white"/>
-  </svg>
-);
+interface IcTitleIconProps extends React.SVGProps<SVGSVGElement> {}
+const IcTitleIcon = (props: IcTitleIconProps)=> (
+<svg {...props} width="118" height="108" viewBox="0 0 118 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect y="61" width="28" height="12" rx="5" fill="#F67402"/>
+<rect y="73" width="28" height="12" rx="5" fill="#F67402"/>
+<rect x="90" y="59" width="28" height="9" rx="3" fill="#F67402"/>
+<rect x="90" y="68" width="28" height="8" rx="3" fill="#F67402"/>
+<rect x="90" y="76" width="28" height="9" rx="3" fill="#F67402"/>
+<rect x="11" y="37" width="93" height="70" rx="20" fill="#FF9F4B"/>
+<rect x="23" y="58" width="10" height="10" rx="2" fill="black"/>
+<rect x="58.0356" y="97" width="7.12125" height="7.12125" transform="rotate(45 58.0356 97)" fill="#C79305"/>
+<rect x="58.0356" y="92" width="7.12125" height="7.12125" transform="rotate(45 58.0356 92)" fill="#C79305"/>
+<rect x="58.0356" y="87" width="7.12125" height="7.12125" transform="rotate(45 58.0356 87)" fill="#C79305"/>
+<rect x="58.0356" y="82" width="7.12125" height="7.12125" transform="rotate(45 58.0356 82)" fill="#C79305"/>
+<rect x="58.0356" y="77" width="7.12125" height="7.12125" transform="rotate(45 58.0356 77)" fill="#C79305"/>
+<rect x="58.0356" y="72" width="7.12125" height="7.12125" transform="rotate(45 58.0356 72)" fill="#C79305"/>
+<rect x="58.0356" y="67" width="7.12125" height="7.12125" transform="rotate(45 58.0356 67)" fill="#C79305"/>
+<rect x="58.0356" y="61.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 61.9999)" fill="#C79305"/>
+<rect x="58.0356" y="56.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 56.9999)" fill="#C79305"/>
+<rect x="58.0356" y="51.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 51.9999)" fill="#C79305"/>
+<rect x="58.0356" y="46.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 46.9999)" fill="#C79305"/>
+<rect x="58.0356" y="41.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 41.9999)" fill="#C79305"/>
+<rect x="58.0356" y="36.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 36.9999)" fill="#C79305"/>
+<rect x="58.0356" y="31.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 31.9999)" fill="#C79305"/>
+<rect x="58.0356" y="27" width="7.12125" height="7.12125" transform="rotate(45 58.0356 27)" fill="#C79305"/>
+<rect x="58.0356" y="22" width="7.12125" height="7.12125" transform="rotate(45 58.0356 22)" fill="#C79305"/>
+<rect x="58.0356" y="16.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 16.9999)" fill="#C79305"/>
+<rect x="58.0356" y="11.9999" width="7.12125" height="7.12125" transform="rotate(45 58.0356 11.9999)" fill="#C79305"/>
+<rect x="58.0356" y="6.99994" width="7.12125" height="7.12125" transform="rotate(45 58.0356 6.99994)" fill="#C79305"/>
+<rect x="65.8928" y="0.692017" width="7.86896" height="14" transform="rotate(42.8082 65.8928 0.692017)" fill="#C79305"/>
+<rect x="45" y="6.56421" width="7.86896" height="14" transform="rotate(-45 45 6.56421)" fill="#C79305"/>
+</svg>);
 
 export default IcTitleIcon;

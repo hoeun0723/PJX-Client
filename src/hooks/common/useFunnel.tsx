@@ -11,7 +11,7 @@ interface FunnelProps {
 }
 
 const useFunnel = () => {
-  const [currentStep, setCurrentStep] = useState('step1');
+  const [currentStep, setCurrentStep] = useState('step2');
 
   const Step = ({ children }: StepProps) => {
     return <>{children}</>
