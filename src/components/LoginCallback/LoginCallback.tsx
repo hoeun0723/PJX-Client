@@ -9,11 +9,12 @@ const LoginCallback = () => {
   const code = new URL(document.location.toString()).searchParams.get('code');
   const { mutate: postCode }  = usePostAccessCode();
   const navigate = useNavigate();
-  const handleNavigate = () => {
-    navigate('/');
+  const handleNavigate = (status: string) => {
+    status === 'new' ? navigate('/onboarding') : navigate('/home');
   };
 
   const { setUserInfo } = useContext(UserInfoContext);
+
   const getKakaoInfo = async () => {
     const accessToken = localStorage.getItem('KAKAO_TOKEN');
     const response = await authInstance.get('/api/kakao/userinfo', {
@@ -35,10 +36,10 @@ const LoginCallback = () => {
           localStorage.setItem('id', data.userInfo.id);
           console.log(data);
           setUserInfo({
-            nickname: data.userInfo.properties.nickname,
-            profileImage: data.userInfo.properties.profile_image,
+            nickname: data.userInfo.nickname,
+            profileImage: data.userInfo.profileImageUrl,
           });
-          handleNavigate();
+          handleNavigate(data.status);
           
         },
       });
