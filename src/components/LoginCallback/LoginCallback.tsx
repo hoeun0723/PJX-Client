@@ -28,8 +28,7 @@ const LoginCallback = () => {
 
   useEffect(() => {
     if (code) {
-      const body = {'code':code};
-      postCode(body, {
+      postCode(code, {
         onSuccess: async () => {
           const data = await getKakaoInfo();
           localStorage.setItem('EXIT_ACCESS_TOKEN', data.jwtToken);

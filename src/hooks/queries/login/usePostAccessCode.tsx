@@ -1,12 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 import { authInstance } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
+import { REDIRECT_URI } from '../../../utils/login';
 
-interface bodyType {
-  code: string;
-}
-
-export const postAccessCode = async (body: bodyType) => {
+export const postAccessCode = async (code: string) => {
+  const body = {
+    code: code,
+    redirectUri: REDIRECT_URI,
+  };
+  
   const response: AxiosResponse = await authInstance.post('/api/kakao/callback', body);
   return response.data;
 };
