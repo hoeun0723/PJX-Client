@@ -5,13 +5,13 @@ import * as S from './CostPrice.style';
 import React, { ChangeEvent } from 'react';
 
 interface CostPriceProps {
-  price: number;
-  category: string;
+  amount: number;
+  description: string;
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
   onPrev: VoidFunction;
 }
 
-const CostPrice = ({ price, category, setValues, onPrev}: CostPriceProps) => {
+const CostPrice = ({ amount, description, setValues, onPrev}: CostPriceProps) => {
   const counts = [
     {
       label: '1천원',
@@ -34,13 +34,13 @@ const CostPrice = ({ price, category, setValues, onPrev}: CostPriceProps) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValues((prevValues) => ({
       ...prevValues,
-      price: Number(e.target.value),
+      amount: Number(e.target.value),
     }));
   };
   const handlePrice = (value: number) => {
     setValues((prevValues) => ({
       ...prevValues,
-      price: price + value,
+      amount: amount + value,
     }));
   };
 
@@ -48,12 +48,12 @@ const CostPrice = ({ price, category, setValues, onPrev}: CostPriceProps) => {
     <S.CostPriceWrapper>
       <S.InputBox>
         <S.PriceInput 
-          value={price}
+          value={amount}
           placeholder='0'
           onChange={onChange}
         /> 원
       </S.InputBox>
-      <S.NameText>{category}</S.NameText>
+      <S.NameText>{description}</S.NameText>
       <S.CountButtonField>
         {
           counts.map((count) => (

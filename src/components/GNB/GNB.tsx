@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import * as S from './GNB.style';
-import { IcAlarmActive, IcAlarmUnActive, IcExpensesActive, IcExpensesUnActive, IcFeedActive, IcFeedUnActive, IcMyActive, IcMyUnActive } from "../../assets/svg";
+import { IcExpensesActive, IcExpensesUnActive, IcFeedActive, IcFeedUnActive, IcMyActive, IcMyUnActive } from "../../assets/svg";
 import { useNavigate } from "react-router-dom";
 
 const GNB = () => {
