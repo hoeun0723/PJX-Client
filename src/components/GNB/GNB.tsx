@@ -15,9 +15,6 @@ const GNB = () => {
             case 'feed':
                 navigate('/feed');
                 break;
-            case 'alarm':
-                navigate('/alarm');
-                break;
             case 'my':
                 navigate('/mypage');
                 break;
@@ -36,11 +33,6 @@ const GNB = () => {
             <S.NavigateBtn onClick={() => handleNavigation('feed')}>
                 {activeTab === 'feed' ? <IcFeedActive /> : <IcFeedUnActive />}
                 <p>피드</p>
-            </S.NavigateBtn>
-
-            <S.NavigateBtn onClick={() => handleNavigation('alarm')}>
-                {activeTab === 'alarm' ? <IcAlarmActive /> : <IcAlarmUnActive />}
-                <p>알람</p>
             </S.NavigateBtn>
 
             <S.NavigateBtn onClick={() => handleNavigation('my')}>
