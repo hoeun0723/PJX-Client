@@ -8,9 +8,9 @@ interface ValidNicknameResponseType {
 }
 
 export const getNickname = async (value: string): Promise<ValidNicknameResponseType> => {
-  const res: AxiosResponse = await get('/api/onboarding/nickname-check', {
+  const res: AxiosResponse = await get('/api/users/user-nickname-check', {
     params: {
-      nickname: value,
+      userNickname: value,
     },
   });
   console.log(res);

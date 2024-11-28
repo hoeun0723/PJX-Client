@@ -6,6 +6,6 @@ export const ButtonWrapper = styled.button`
   background-color: ${({ theme }) => theme.colors.primary.default};
   color: ${({ theme }) => theme.colors.normal.white};
   width: 34.1rem;
-  height: 5.6rem;
+  height: 4.6rem;
   border-radius: 8px;
 `;
