@@ -35,7 +35,6 @@ export const serverInstance = axios.create({
     withCredentials: true,
     headers: {
       Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
-      "Content-Type": `multipart/form-data`,
     },
   });
 
@@ -54,7 +53,7 @@ export const serverInstance = axios.create({
   export function aiPost<T>(...args: Parameters<typeof aiInstance.post>) {
     return aiInstance.post<T>(...args);
   }
-  
+
   export function get<T>(...args: Parameters<typeof serverInstance.get>) {
     return serverInstance.get<T, T>(...args);
   }

@@ -49,8 +49,8 @@ export const SummaryBox = styled.div`
     gap: 0.4rem;
   };
 `;
-export const SummarySpan = styled.span<{isDays: boolean}>`
-  color: ${({ theme, isDays }) => (isDays ? theme.colors.primary.default : theme.colors.normal.black)};
+export const SummarySpan = styled.span<{$isDays: boolean}>`
+  color: ${({ theme, $isDays }) => ($isDays ? theme.colors.primary.default : theme.colors.normal.black)};
 `;
 export const NavigateField = styled.div`
   ${({ theme: { mixin } }) => mixin.flexCenter({})};
