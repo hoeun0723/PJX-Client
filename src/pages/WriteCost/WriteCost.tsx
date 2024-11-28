@@ -15,15 +15,15 @@ const WriteCost = () => {
 
   const [state, setState] = useState<string>(navigateState);
   const [values, setValues] = useState<InputType>({
-    category: '지출 내역 입력',
-    price:0,
-    memo:'',
+    description: '지출 내역 입력',
+    amount:0,
+    note:'',
     image:'',
   });
 
   const handleName = () => {
     setState('costName');
-    values.category === '지출 내역 입력' ? setValues({...values, category: '' }) : null;
+    values.description === '지출 내역 입력' ? setValues({...values, description: '' }) : null;
   };
   const handleCost = () => {
     setState('costPrice');
@@ -44,12 +44,12 @@ const WriteCost = () => {
     {
       label: 'costName',
       title: '지출 내용',
-      component: <CostName category={values.category} setValues={setValues} onPrev={handlePrev}/>,
+      component: <CostName description={values.description} setValues={setValues} onPrev={handlePrev}/>,
     },
     {
       label: 'costPrice',
       title: '지출 금액',
-      component: <CostPrice price={values.price} category={values.category} setValues={setValues} onPrev={handlePrev}/>,
+      component: <CostPrice amount={values.amount} description={values.description} setValues={setValues} onPrev={handlePrev}/>,
     },
     {
       label: 'aiSubmit',

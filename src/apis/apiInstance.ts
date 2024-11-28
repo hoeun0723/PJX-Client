@@ -34,6 +34,7 @@ export const serverInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_AI_BASE_URL,
     withCredentials: true,
     headers: {
+      Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
       "Content-Type": `multipart/form-data`,
     },
   });

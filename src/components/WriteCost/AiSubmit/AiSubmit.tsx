@@ -4,6 +4,7 @@ import { useState, ChangeEvent } from 'react';
 import { IcPlus } from '../../../assets/svg';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import InputType from '../../../types/InputType';
+import usePostReceiptAnalyze from '../../../hooks/queries/receipt/usePostReceiptAnalyze';
 
 interface AiSubmitProps {
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
@@ -12,27 +13,62 @@ interface AiSubmitProps {
 
 const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   const [imgUrl, setImgUrl] = useState('');
-  const mockMemo = '토마토는 3천원';
-  const mockCost = 3000;
-  const mockCategory = '토마토맛토';
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const { mutate: postRecipt } = usePostReceiptAnalyze();
+
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       const url = URL.createObjectURL(file);
       setImgUrl(url);
+      setSelectedFile(file);
     }
   };
+
+  const parseLog = (text: string) => {
+    const regex = /\d+: (.+?) \$(\d{1,3}(?:,\d{3})*)/g;
+    let matches;
+    let resultString = '';
+    let resultPrice = 0;
+
+    // 모든 매치 결과를 반복
+    while ((matches = regex.exec(text)) !== null) {
+      const productName = matches[1].trim();
+      const price = matches[2].replace(/,/g, ''); // 가격에서 쉼표 제거
+      resultString += `${productName} - $${price}\n`;
+      resultPrice += Number(price);
+    }
+    return {resultString, resultPrice};
+  };
+
   const handleSubmit = () => {
-    alert('AI로 전달');
-    setValues((prevValues) => ({
-      ...prevValues,
-      image: imgUrl,
-      memo: mockMemo,
-      price: mockCost,
-      category: mockCategory,
-    }));
-    onState('submit');
+    if (!selectedFile) {
+      alert("Please select an image first.");
+      return;
+    }
+    const body = { file: selectedFile};    
+    try{
+
+      postRecipt(body, {
+        onSuccess: (response) => {
+          const parsedRes = parseLog(response.result);
+          setValues((prevValues) => ({
+            ...prevValues,
+            image: imgUrl,
+            note: parsedRes.resultString,
+            amount: parsedRes.resultPrice,
+            }));
+          onState('submit');
+          console.log(response.result)
+        }
+      });
+      
+    }
+    catch(err) {
+      console.error(err);
+      return;
+    }
   };
 
   return(
