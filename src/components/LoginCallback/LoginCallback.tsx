@@ -7,6 +7,7 @@ import UserInfoContext from '../../context/User/UserInfoContext';
 
 const LoginCallback = () => {
   const code = new URL(document.location.toString()).searchParams.get('code');
+
   const { mutate: postCode }  = usePostAccessCode();
   const navigate = useNavigate();
   const handleNavigate = (status: string) => {
@@ -15,8 +16,7 @@ const LoginCallback = () => {
 
   const { setUserInfo } = useContext(UserInfoContext);
 
-  const getKakaoInfo = async () => {
-    const accessToken = localStorage.getItem('KAKAO_TOKEN');
+  const getKakaoInfo = async (accessToken: string) => {
     const response = await authInstance.get('/api/kakao/userinfo', {
       params: {
         accessToken: accessToken,
@@ -29,16 +29,15 @@ const LoginCallback = () => {
   useEffect(() => {
     if (code) {
       postCode(code, {
-        onSuccess: async () => {
-          const data = await getKakaoInfo();
-          localStorage.setItem('EXIT_ACCESS_TOKEN', data.jwtToken);
-          localStorage.setItem('id', data.userInfo.id);
-          console.log(data);
+        onSuccess: async (res) => {
+          const resData = await getKakaoInfo(res.data.access_token);
+          localStorage.setItem('EXIT_ACCESS_TOKEN', resData.jwtToken);
+          localStorage.setItem('id', resData.userInfo.id);
           setUserInfo({
-            nickname: data.userInfo.nickname,
-            profileImage: data.userInfo.profileImageUrl,
+            nickname: resData.userInfo.nickname,
+            profileImage: resData.userInfo.profileImageUrl,
           });
-          handleNavigate(data.status);
+          handleNavigate(resData.status);
           
         },
       });
