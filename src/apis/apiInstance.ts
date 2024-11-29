@@ -34,7 +34,7 @@ export const serverInstance = axios.create({
     baseURL: import.meta.env.VITE_APP_AI_BASE_URL,
     withCredentials: true,
     headers: {
-      "Content-Type": `multipart/form-data`,
+      Authorization: `Bearer ${getAccessTokenLocalStorage()}`,
     },
   });
 
@@ -53,7 +53,7 @@ export const serverInstance = axios.create({
   export function aiPost<T>(...args: Parameters<typeof aiInstance.post>) {
     return aiInstance.post<T>(...args);
   }
-  
+
   export function get<T>(...args: Parameters<typeof serverInstance.get>) {
     return serverInstance.get<T, T>(...args);
   }

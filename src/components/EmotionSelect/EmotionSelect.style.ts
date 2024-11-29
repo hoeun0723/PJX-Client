@@ -5,7 +5,6 @@ interface ModalOpenProps {
 }
 
 export const EmotionSelectWrapper = styled.div`
-    width: 100%;
     background-color: none;
 `;
 

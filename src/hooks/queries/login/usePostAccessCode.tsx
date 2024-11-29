@@ -1,22 +1,22 @@
 import { useMutation } from '@tanstack/react-query';
-import { authInstance } from '../../../apis/apiInstance';
-import { AxiosResponse } from 'axios';
+import { REDIRECT_URI, REST_API_KEY } from '../../../utils/login';
+import axios from 'axios';
 
-interface bodyType {
-  code: string;
-}
-
-export const postAccessCode = async (body: bodyType) => {
-  const response: AxiosResponse = await authInstance.post('/api/kakao/callback', body);
-  return response.data;
+export const postAccessCode = async (code: string) => {
+  const GRANT_TYPE = 'authorization_code';
+  const POST_URL = `grant_type=${GRANT_TYPE}&client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&code=${code}&client_secret=hrF3lTqZn3atX7PvYbrJMrXUIFbj4bfr`;
+  const response = await axios.post(`https://kauth.kakao.com/oauth/token?${POST_URL}`, {
+    headers: {
+      'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+    },
+  });
+  return response;
 };
 
 const usePostAccessCode = () => {
   return useMutation({
     mutationFn: postAccessCode,
-    onSuccess: (response) => {
-      localStorage.setItem('KAKAO_TOKEN', response.access_token);
-      localStorage.setItem('KAKAO_REFRESH_TOKEN', response.refresh_token);
+    onSuccess: () => {
       console.log('전송 성공');
     },
     onError: (error) => {

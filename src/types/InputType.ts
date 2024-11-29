@@ -1,7 +1,7 @@
 interface InputType {
-  category: string;
-  price: number;
-  memo: string;
+  description: string;
+  amount: number;
+  note: string;
   image: string;
 }
 

@@ -13,11 +13,6 @@ const EditProfile = () => {
 
       <S.EditBox>
         <S.EditItem>
-          <S.EditTitleText>이메일</S.EditTitleText>
-          <p>email@naver.com</p>
-          <S.EditSpan>수정</S.EditSpan>
-        </S.EditItem>
-        <S.EditItem>
           <S.EditTitleText>닉네임</S.EditTitleText>
           <p>이웃집 토토로</p>
           <S.EditSpan>수정</S.EditSpan>

@@ -4,34 +4,51 @@ import { IcAngry, IcHappy, IcPlusRound, IcSad, IcSurprised, IcThinking } from '.
 
 const EmotionSelect = () => {
     const [openModal, setOpenModal] = useState(false);
-    const [selectedIcon, setSelectedIcon] = useState(<IcPlusRound style={{width: '3rem', height: '3rem'}}/>);
+    const [selectedIcon, setSelectedIcon] = useState<{ icon: JSX.Element; name: string }>({
+        icon: <IcPlusRound style={{ width: '3rem', height: '3rem' }} />,
+        name: '',
+    });
 
-    const handleIconClick = (icon: JSX.Element) => {
-        setSelectedIcon(icon);
-        setOpenModal(false); // 아이콘을 클릭하면 모달을 닫음
+    // 아이콘 데이터 배열
+    const icons = [
+        { component: <IcHappy style={{ width: '4rem', height: '4rem' }} />, name: 'happy' },
+        { component: <IcThinking style={{ width: '4rem', height: '4rem' }} />, name: 'think' },
+        { component: <IcSurprised style={{ width: '4rem', height: '4rem' }} />, name: 'surprised' },
+        { component: <IcSad style={{ width: '4rem', height: '4rem' }} />, name: 'sad' },
+        { component: <IcAngry style={{ width: '4rem', height: '4rem' }} />, name: 'angry' },
+    ];
+
+    const handleIconClick = (icon: JSX.Element, name: string) => {
+        setSelectedIcon({ icon, name });
+        console.log(name); // 선택된 아이콘의 이름을 콘솔에 출력
+        setOpenModal(false); 
     };
 
     return (
         <S.EmotionSelectWrapper>
-            {/* 선택된 아이콘을 보여주고 클릭하면 모달을 여는 기능 유지 */}
             <div onClick={() => setOpenModal(!openModal)}>
-                {selectedIcon}
+                {selectedIcon.icon}
             </div>
-            {/* 모달 열림 여부에 따라 아이콘 모달 렌더링 */}
-            {openModal ? (
+            {openModal && (
                 <>
-                    <S.ModalOpenBackGround onClick={() => setOpenModal(!openModal)} openModal={openModal}></S.ModalOpenBackGround>
+                    <S.ModalOpenBackGround
+                        onClick={() => setOpenModal(false)}
+                        openModal={openModal}
+                    />
                     <S.EmotionModal>
-                        <IcHappy onClick={() => handleIconClick(<IcHappy style={{width: '3rem', height: '3rem'}} />)} />
-                        <IcThinking onClick={() => handleIconClick(<IcThinking style={{width: '3rem', height: '3rem'}} />)} />
-                        <IcSurprised onClick={() => handleIconClick(<IcSurprised style={{width: '3rem', height: '3rem'}} />)} />
-                        <IcSad onClick={() => handleIconClick(<IcSad style={{width: '3rem', height: '3rem'}} />)} />
-                        <IcAngry onClick={() => handleIconClick(<IcAngry style={{width: '3rem', height: '3rem'}} />)} />
+                        {icons.map((item, index) => (
+                            <div
+                                key={index}
+                                onClick={() => handleIconClick(item.component, item.name)}
+                            >
+                                {item.component}
+                            </div>
+                        ))}
                     </S.EmotionModal>
                 </>
-            ) : null}
+            )}
         </S.EmotionSelectWrapper>
     );
-}
+};
 
 export default EmotionSelect;

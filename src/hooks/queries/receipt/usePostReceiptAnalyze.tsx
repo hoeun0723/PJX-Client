@@ -9,7 +9,11 @@ export const postReceiptImage = async (body: ReceiptImage) => {
   const formData = new FormData();
   formData.append('files', body.file); 
 
-  const response: AxiosResponse = await aiPost(`/receipt/analyze`, formData);
+  const response: AxiosResponse = await aiPost(`/receipt/analyze`, formData ,{
+    headers: {
+      "Content-Type": `multipart/form-data`,
+    },
+  });
   return response.data;
 };
 

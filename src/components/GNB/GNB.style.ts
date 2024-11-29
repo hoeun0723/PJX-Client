@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const GNBWrapper = styled.div`
+position: fixed;
+bottom : 0;
 width:100%;
 ${({ theme: { mixin } }) => mixin.flexBox({ justify: 'space-between' })};
 background-color: white;

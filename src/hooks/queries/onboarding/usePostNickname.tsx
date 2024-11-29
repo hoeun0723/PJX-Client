@@ -2,14 +2,11 @@ import { useMutation } from '@tanstack/react-query';
 import { AxiosResponse } from 'axios';
 import { post } from '../../../apis/apiInstance';
 
-interface NicknameInterface {
-  nickname: string;
-}
-
 export const POST_NICKNAME_QUERY_KEY = ['nicknameData'];
 
-export const postNickname = async (data: NicknameInterface) => {
-  const res: AxiosResponse = await post(`/api/onboarding`, data);
+export const postNickname = async (value: string) => {
+  const data = { userNickname: value };
+  const res: AxiosResponse = await post('/api/users/api/onboarding', data);
   return res.data;
 };
 
@@ -17,7 +14,7 @@ const usePostNickname = () => {
   return useMutation({
     mutationFn: postNickname,
     onSuccess: (data) => {
-      console.log(data);
+      localStorage.setItem('userNickname', data.data.userNickname);
     },
     onError: (error) => {
       console.log(error);

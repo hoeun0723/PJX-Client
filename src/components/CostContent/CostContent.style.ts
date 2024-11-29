@@ -5,9 +5,9 @@ ${({ theme: { mixin } }) => mixin.flexBox({ direction: 'column' })};
 width: 100%;
 padding: 2.4rem 1.6rem 2rem 1.6rem;
 background-color: white;
-height: 15.3rem;
 border-radius: 1.2rem 1.2rem 0 0 ;
 gap: 2rem;
+padding-bottom: 6.3rem;
 `;
 
 export const DayWrapper = styled.div`

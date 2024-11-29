@@ -4,23 +4,22 @@ import * as S from './CostName.style';
 import React, { ChangeEvent } from 'react';
 
 interface CostNameProps {
-  category: string;
+  description: string;
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
   onPrev: VoidFunction;
 }
 
-const CostName = ({ category, setValues, onPrev }: CostNameProps) => {
+const CostName = ({ description, setValues, onPrev }: CostNameProps) => {
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValues((prevValues) => ({
       ...prevValues,
-      category: e.target.value,
+      description: e.target.value,
     }));
   };
-  console.log(onPrev)
   return(
     <S.CostNameWrapper>
       <S.NameInput 
-        value={category}
+        value={description}
         placeholder='지출 내용을 입력해주세요'
         onChange={onChange}
       />

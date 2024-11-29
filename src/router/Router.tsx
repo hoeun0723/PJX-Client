@@ -14,6 +14,7 @@ import Profile from '../pages/Mypage/Profile/Profile';
 import Loading from '../pages/Loading/Loading';
 import LoginCallback from '../components/LoginCallback/LoginCallback';
 import WriteCost from '../pages/WriteCost/WriteCost';
+import SetMonthGoal from '../components/SetMonthGoal/SetMonthGoal';
 
 const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/mypage-profile',
         element: <Profile />,
+      },
+      {
+        path: '/monthly-goal',
+        element: <SetMonthGoal/>,
       },
       {
         path: '/mypage-friends',
