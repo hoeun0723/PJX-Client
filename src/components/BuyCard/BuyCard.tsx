@@ -1,7 +1,6 @@
 import React from "react";
 import * as S from './BuyCard.style';
 import EmotionList from "../EmotionList/EmotionList";
-import EmotionSelect from "../EmotionSelect/EmotionSelect";
 
 interface BuyCardProps {
     name: string;
