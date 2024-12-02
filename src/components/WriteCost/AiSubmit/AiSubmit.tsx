@@ -58,6 +58,7 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
             image: imgUrl,
             note: parsedRes.resultString,
             amount: parsedRes.resultPrice,
+            file: selectedFile,
             }));
           onState('submit');
           console.log(response.result)

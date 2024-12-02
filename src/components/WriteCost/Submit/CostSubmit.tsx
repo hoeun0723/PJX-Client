@@ -16,7 +16,7 @@ interface CostSubmitProps {
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
   const date = new Date();
   const { mutate: postCost } = usePostCost();
-  const [file, setFile] = useState<File | null>(null);
+  const [file, setFile] = useState<File | null>(values.file);
   const navigate = useNavigate();
 
   const formatDate = (date: Date) => {
