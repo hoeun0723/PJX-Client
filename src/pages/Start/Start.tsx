@@ -5,7 +5,6 @@ import { kakaoUrl } from '../../utils/login';
 import * as S from './Start.style';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import shareKakao from '../../utils/shareKakao';
 
 function Start (){
   const navigate = useNavigate();
@@ -30,9 +29,6 @@ function Start (){
             <BtnKakaoLogin onClick={handeleLogin}/>
         }
       </S.ButtonField>
-      <button onClick={() => {shareKakao()}}>
-        임시 버트트튼
-      </button>
     </S.StartWrapper>
   );
 }

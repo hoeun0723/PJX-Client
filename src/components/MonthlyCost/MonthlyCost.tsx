@@ -36,11 +36,13 @@ const MonthlyCost = ({selectedDate}: { selectedDate: Date}) => {
     const handleAmount = () => {
         setCurrentAmount((currentAmount / maxGoal) * 100);
     }
+
+    const userNickname = localStorage.getItem('nickname');
     return (
         <>
         <S.IcPenWrapper onClick={()=>navigate('/monthly-goal')}><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
             <S.MonthlyPaidWrapper>
-                <p ><span>닉네임</span> 이번달 지출</p>
+                <p ><span>{userNickname}</span> 이번달 지출</p>
                 {cost}원
             </S.MonthlyPaidWrapper>
             <S.MonthlyGoalWrapper>
