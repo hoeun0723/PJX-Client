@@ -1,13 +1,14 @@
 import { useMutation } from '@tanstack/react-query';
 import { post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
-import { DayPaid } from '../../../types/home';
 
 export const POST_DAY_PAID_LIST_QUERY_KEY = ['dayPaidList'];
 
-export const postDayPaid = async (body:DayPaid) => {
+export const postDayPaid = async (date: string) => {
 
-  const response: AxiosResponse = await post(`/api/spending/manual/list`, body);
+  const response: AxiosResponse = await post(`/api/spending/list`,null,{
+    params: { date },
+  });
   return response.data;
 };
 

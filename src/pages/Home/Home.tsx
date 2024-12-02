@@ -13,7 +13,7 @@ const Home = () => {
 
     return (
         <S.HomeWrapper>
-            <MonthlyCost/>
+            <MonthlyCost selectedDate={selectedDate}/>
             
             <Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
             <CostContent selectedDate={selectedDate} />
