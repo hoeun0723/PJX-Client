@@ -29,9 +29,6 @@ function Start (){
             <BtnKakaoLogin onClick={handeleLogin}/>
         }
       </S.ButtonField>
-      <button onClick={() => {shareKakao()}}>
-        임시 버트트튼
-      </button>
     </S.StartWrapper>
   );
 }
