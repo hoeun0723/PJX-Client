@@ -10,7 +10,7 @@ import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 const Mypage = () => {
   //const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
-  const userNickname = localStorage.getItem('userNickname');
+  const userNickname = localStorage.getItem('nickname');
   const { data } = useGetProfile();
   const { mutate: postSummary } = usePostSummary();
   

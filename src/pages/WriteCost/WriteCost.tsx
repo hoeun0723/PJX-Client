@@ -19,6 +19,7 @@ const WriteCost = () => {
     amount:0,
     note:'',
     image:'',
+    file: null,
   });
 
   const handleName = () => {

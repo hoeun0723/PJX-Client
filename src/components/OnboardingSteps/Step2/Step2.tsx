@@ -21,6 +21,7 @@ function Step2 ({ onNext }: StepProps){
     postNickname(value, {
       onSuccess: (data) => {
         console.log(data);
+        localStorage.setItem('nickname', data.userNickname);
         onNext();
       },
     });

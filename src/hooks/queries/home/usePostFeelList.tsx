@@ -1,14 +1,15 @@
 import { useMutation } from '@tanstack/react-query';
 import { post } from '../../../apis/apiInstance';
 import { AxiosResponse } from 'axios';
-import { FeelList } from '../../../types/home';
 
 export const POST_Feel_QUERY_KEY = ['feelDataList'];
 
-export const postFeelList = async (body:FeelList) => {
+export const postFeelList = async (month: string) => {
 
-  const response: AxiosResponse = await post(`/api/users/reactions/by-month`, body);
-  return response.data;
+  const response: AxiosResponse = await post(`/api/reaction/reactions/by-month`,null,{
+    params: { month },
+  });
+return response.data;
 };
 
 export const usePostFeelList = () => {

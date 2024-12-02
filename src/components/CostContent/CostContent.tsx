@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import * as S from './CostContent.style';
 import { useNavigate } from "react-router-dom";
 import EmotionSelect from "../EmotionSelect/EmotionSelect";
 import PaidContent from "../PaidContent/PaidContent";
+import usePostDayPaid from "../../hooks/queries/home/usePostDayPaid";
 
 const getDayName = (date: Date | undefined) => {
     if (!date) return '';
@@ -11,36 +12,74 @@ const getDayName = (date: Date | undefined) => {
     return days[date.getDay()]; 
 };
 
-const CostContent = ({ selectedDate }: { selectedDate: Date }) => {
+const formatDate = (date: Date | undefined) => {
+    if (!date) return '';
+    
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+};
+
+const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
-    const paidContentExample = {
-        note: "바이바이 샐러드",
-        amount: 42000,
-        description: "집 근처에 있는 샐러드 가게에 갔는데 안사먹을 수가 없었다...진짜 대박 맛집이었어...애들아 다들 먹어....ㅋㅋㅋ",
-        images: [
-            "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11", // 첫 번째 이미지 URL
-            "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
-        ]
-    };
+    const { mutate: dayPaid } = usePostDayPaid();
+    // const paidContentExample = {
+    //     note: "바이바이 샐러드",
+    //     amount: 42000,
+    //     description: "집 근처에 있는 샐러드 가게에 갔는데 안사먹을 수가 없었다...진짜 대박 맛집이었어...애들아 다들 먹어....ㅋㅋㅋ",
+    //     images: [
+    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11", // 첫 번째 이미지 URL
+    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
+    //     ]
+    // };
+    const [spendingList, setSpendingList] = useState<
+    Array<{
+        note: string;
+        amount: number;
+        description: string;
+        images: string[];
+    }>
+>([]);
+    useEffect(()=>{
+        dayPaid(formatDate(selectedDate), {
+            onSuccess: (data) => {
+                console.log(data);
+                if (data.spendingList && data.spendingList.length > 0) {
+                    setSpendingList(data.spendingList);
+                } else {
+                    setSpendingList([]); // 데이터가 없는 경우 빈 배열로 설정
+                }
+            },
+        });
+    },[selectedDate, dayPaid])
+    
 
-    const hasPaidContent = Boolean(paidContentExample.note);
+    const hasPaidContent = spendingList.length > 0;
 
     return (
         <S.CostContentWrapper>
             <S.DayWrapper>
                 <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
-                <EmotionSelect/>
+                {hasPaidContent && <EmotionSelect selectedDate={selectedDate} />}
             </S.DayWrapper>
             {!hasPaidContent && (
-                <S.AddContentBtn onClick={() => navigate('/write-type')}>+ 지출추가</S.AddContentBtn>
+                <S.AddContentBtn onClick={() => navigate('/write-type')}>
+                    + 지출추가
+                </S.AddContentBtn>
             )}
-            <PaidContent 
-                note={paidContentExample.note} 
-                amount={paidContentExample.amount} 
-                description={paidContentExample.description} 
-                images={paidContentExample.images}
-            />
+            {hasPaidContent &&
+                spendingList.map((item, index) => (
+                    <PaidContent
+                        key={index} // 각 PaidContent에 고유한 key 제공
+                        note={item.note}
+                        amount={item.amount}
+                        description={item.description}
+                        images={item.images}
+                    />
+                ))}
         </S.CostContentWrapper>
     )
 }

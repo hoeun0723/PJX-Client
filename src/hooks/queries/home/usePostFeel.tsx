@@ -5,9 +5,13 @@ import { Feel } from '../../../types/home';
 
 export const POST_Feel_QUERY_KEY = ['feelData'];
 
-export const postFeel = async (body: Feel) => {
-
-  const response: AxiosResponse = await post(`/api/users/submit-reaction`, body);
+export const postFeel = async (body: Feel) =>{
+  const response: AxiosResponse = await post(`/api/reaction/submit-reaction`,null,{
+    params: {
+      date: body.date,
+      reactionType: body.reactionType,
+    }
+  });
   return response.data;
 };
 
@@ -24,3 +28,4 @@ export const usePostFeel = () => {
 };
 
 export default usePostFeel;
+

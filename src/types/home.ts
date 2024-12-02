@@ -1,6 +1,6 @@
 export type Feel= {
     date: string;
-    reactionType: string
+    reactionType: string;
 };
 
 export type FeelList = {
