@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import * as S from './GNB.style';
-import { IcExpensesActive, IcExpensesUnActive, IcFeedActive, IcFeedUnActive, IcMyActive, IcMyUnActive } from "../../assets/svg";
+import { IcExpensesActive, IcExpensesUnActive, IcMyActive, IcMyUnActive } from "../../assets/svg";
 import { useNavigate } from "react-router-dom";
+import IcShare from '../../assets/svg/IcShare';
+import shareKakao from '../../utils/shareKakao';
 
 const GNB = () => {
     const navigate = useNavigate();
@@ -11,9 +13,6 @@ const GNB = () => {
         switch (tab) {
             case 'expenses':
                 navigate('/home');
-                break;
-            case 'feed':
-                navigate('/feed');
                 break;
             case 'my':
                 navigate('/mypage');
@@ -30,9 +29,9 @@ const GNB = () => {
                 <p>내 지출</p>
             </S.NavigateBtn>
 
-            <S.NavigateBtn onClick={() => handleNavigation('feed')}>
-                {activeTab === 'feed' ? <IcFeedActive /> : <IcFeedUnActive />}
-                <p>피드</p>
+            <S.NavigateBtn onClick={() => shareKakao()}>
+                <IcShare />
+                <p>내 지출 공유하기</p>
             </S.NavigateBtn>
 
             <S.NavigateBtn onClick={() => handleNavigation('my')}>

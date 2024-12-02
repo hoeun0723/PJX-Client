@@ -31,8 +31,10 @@ const LoginCallback = () => {
       postCode(code, {
         onSuccess: async (res) => {
           const resData = await getKakaoInfo(res.data.access_token);
+          console.log(resData);
           localStorage.setItem('EXIT_ACCESS_TOKEN', resData.jwtToken);
           localStorage.setItem('id', resData.userInfo.id);
+          localStorage.setItem('nickname', resData.userInfo.userNickname);
           setUserInfo({
             nickname: resData.userInfo.nickname,
             profileImage: resData.userInfo.profileImageUrl,
