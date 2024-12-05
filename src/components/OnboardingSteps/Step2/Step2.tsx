@@ -12,7 +12,6 @@ function Step2 ({ onNext }: StepProps){
   const [value, setValue] = useState<string>('');
   const { mutate: postNickname } = usePostNickname();
   const { isError } = useGetNickname(value);
-
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
   };

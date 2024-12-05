@@ -4,7 +4,7 @@ interface IcPlusRoundProps extends React.SVGProps<SVGSVGElement> {}
 
 const IcPlusRound = (props:IcPlusRoundProps) => (
 <svg {...props} width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g clip-path="url(#clip0_272_4289)">
+<g clipPath="url(#clip0_272_4289)">
 <path d="M84.658 76.2638C98.654 58.2787 96.4769 33.1753 79.7954 20.1938C63.1138 7.21224 38.2448 11.2684 24.2488 29.2535C10.2528 47.2386 12.4299 72.342 29.1115 85.3235C45.793 98.3051 70.6621 94.2489 84.658 76.2638Z" fill="#D5D9E0" stroke="#8C9097" strokeWidth="2.34386" strokeMiterlimit="10"/>
 <mask id="mask0_272_4289" maskUnits="userSpaceOnUse" x="15" y="12" width="79" height="81">
 <path d="M84.6574 76.2638C98.6534 58.2787 96.4763 33.1753 79.7948 20.1938C63.1132 7.21224 38.2442 11.2684 24.2482 29.2535C10.2522 47.2386 12.4293 72.342 29.1109 85.3235C45.7924 98.3051 70.6614 94.2489 84.6574 76.2638Z" fill="white"/>

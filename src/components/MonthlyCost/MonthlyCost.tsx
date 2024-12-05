@@ -49,7 +49,7 @@ const MonthlyCost = ({selectedDate}: { selectedDate: Date}) => {
                 <p>목표 지출 <span> {maxGoal}만원</span></p>
             </S.MonthlyGoalWrapper>
             <S.ProgressBarWrapper>
-                <S.ProgressBarFill widthPercentage={handleAmount} />
+                <S.ProgressBarFill $widthpercentage={handleAmount} />
             </S.ProgressBarWrapper>
         </>
     )

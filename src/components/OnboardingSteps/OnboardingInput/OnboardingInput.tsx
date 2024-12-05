@@ -11,6 +11,7 @@ interface OnboardingInputProps {
 }
 
 function OnboardingInput ({ placeholder, name, value, onChange, isError }: OnboardingInputProps){
+  console.log(value);
   return(
     <S.OnboardingInputWrapper>
       <S.TextInput 
@@ -20,7 +21,7 @@ function OnboardingInput ({ placeholder, name, value, onChange, isError }: Onboa
         onChange={onChange}
         $isError={isError}
       />
-      {isError && <S.ErrorText>동일한 닉네임이 있어요</S.ErrorText>}
+      {(isError && value!=='') && <S.ErrorText>동일한 닉네임이 있어요</S.ErrorText>}
     </S.OnboardingInputWrapper>
   );
 }
