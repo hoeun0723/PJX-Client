@@ -16,13 +16,13 @@ const formatMonth = (date: Date | undefined) => {
 // 하루를 빼는 함수
 const subtractOneDay = (date: Date): Date => {
     const newDate = new Date(date);
-    newDate.setDate(newDate.getDate() + 1);
+    newDate.setDate(newDate.getDate() +1);
     return newDate;
 };
 
 const EmotionSelect = ({selectedDate}:{selectedDate:Date}) => {
     const [openModal, setOpenModal] = useState(false);
-    const { mutate: feelList, data } = usePostFeelList();
+    const { mutate: feelList } = usePostFeelList();
 
     const [selectedIcon, setSelectedIcon] = useState<{ icon: JSX.Element; name: string }>({
         icon: <IcPlusRound style={{ width: '3rem', height: '3rem' }} />,
@@ -56,6 +56,40 @@ const EmotionSelect = ({selectedDate}:{selectedDate:Date}) => {
                     {
                         onSuccess: (responseData) => {
                             console.log("데이터 요청 성공:", responseData);
+                            // reactionList가 배열인지 확인
+                            if (!Array.isArray(responseData.reactionList)) {
+                                console.error("reactionList is not an array:", responseData.reactionList);
+                                return;
+                            }
+    
+                            
+                            console.log("reactionList:", responseData.reactionList);
+    
+                            const adjustedDate = subtractOneDay(selectedDate).toISOString().split('T')[0];
+                            console.log("Adjusted Date:", adjustedDate);
+    
+                            // adjustedDate와 매칭되는 항목 찾기
+                            const reactionItem = responseData.reactionList.find(
+                                (item: { date: string; reactionType: string }) => item.date === adjustedDate
+                            );
+    
+                            if (!reactionItem) {
+                                console.warn(`No reaction item found for date: ${adjustedDate}`);
+                            } else {
+                                console.log("Reaction Item:", reactionItem);
+    
+                                const reactionName = reactionItem.reactionType;
+                                const matchingIcon = icons.find((icon) => icon.name === reactionName);
+    
+                                if (matchingIcon) {
+                                    setSelectedIcon((prev) => {
+                                        if (prev.name !== reactionName) {
+                                            return { icon: matchingIcon.component, name: reactionName };
+                                        }
+                                        return prev;
+                                    });
+                                }
+                            }
                         },
                         onError: (error) => {
                             console.error("데이터 요청 실패:", error);
@@ -69,31 +103,31 @@ const EmotionSelect = ({selectedDate}:{selectedDate:Date}) => {
         handleFeelList();
     }, [handleFeelList]);
 
-    useEffect(() => {
-        if (data?.reactionsList && selectedDate) {
-            // 하루 전 날짜 계산
-            const adjustedDate = subtractOneDay(selectedDate).toISOString().split('T')[0];
+    // useEffect(() => {
+    //     if (data?.reactionsList && selectedDate) {
+    //         // 하루 전 날짜 계산
+    //         const adjustedDate = subtractOneDay(selectedDate).toISOString().split('T')[0];
 
-            // adjustedDate와 매칭되는 항목 찾기
-            const reactionItem = data.reactionsList.find(
-                (item: any) => item.date === adjustedDate
-            );
+    //         // adjustedDate와 매칭되는 항목 찾기
+    //         const reactionItem = data.reactionsList.find(
+    //             (item: { date: string; reactionType: string }) => item.date === adjustedDate
+    //         );
 
-            if (reactionItem && reactionItem.reactions['3791039912']) {
-                const reactionName = reactionItem.reactions['3791039912'];
-                const matchingIcon = icons.find((icon) => icon.name === reactionName);
+    //         if (reactionItem && reactionItem.reactionType) {
+    //             const reactionName = reactionItem.reactionType;
+    //             const matchingIcon = icons.find((icon) => icon.name === reactionName);
 
-                if (matchingIcon) {
-                    setSelectedIcon((prev) => {
-                        if (prev.name !== reactionName) {
-                            return { icon: matchingIcon.component, name: reactionName };
-                        }
-                        return prev;
-                    });
-                }
-            }
-        }
-    }, [data, selectedDate, icons]);
+    //             if (matchingIcon) {
+    //                 setSelectedIcon((prev) => {
+    //                     if (prev.name !== reactionName) {
+    //                         return { icon: matchingIcon.component, name: reactionName };
+    //                     }
+    //                     return prev;
+    //                 });
+    //             }
+    //         }
+    //     }
+    // }, [data, selectedDate, icons]);
 
     
 
