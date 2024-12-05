@@ -1,30 +1,34 @@
-import React, { useEffect, useState } from "react";
+//import React, { useEffect, useState } from "react";
+import React from 'react';
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
+//import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 import { IcPen } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import { UserInfoProvider } from '../../context/User/UserInfoContext';
 import useGetProfile from '../../hooks/queries/mypage/useGetMypageInfo';
 
 const Mypage = () => {
-  //const { userInfo } = React.useContext(UserInfoContext);
   const navigate = useNavigate();
   const userNickname = localStorage.getItem('nickname');
   const { data } = useGetProfile();
-  const { mutate: postSummary } = usePostSummary();
-  
-  const [summaryValues, setSummaryValues] = useState({
-    amount: 0,
-    category: '',
-    rate: '',
-  });
+  //const { mutate: postSummary } = usePostSummary();
+  const summaryValues = {
+    amount: 10000,
+    category: '식품',
+    rate: '37100원 초과',
+  };
+  /*const [summaryValues, setSummaryValues] = useState({
+    amount: 10000,
+    category: '식품',
+    rate: '37100원 초과',
+  });*/
 
   const handleProfile = () => {
     navigate('/mypage-profile');
   };
 
-  useEffect(() => {
+  /*useEffect(() => {
     postSummary({}, {
       onSuccess: (data) => {
         console.log(data);
@@ -37,7 +41,7 @@ const Mypage = () => {
       },
       
     });
-  }, []);
+  }, []);*/
 
   return (
     <UserInfoProvider>

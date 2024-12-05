@@ -4,7 +4,7 @@ import usePostCost from '../../../hooks/queries/cost/usePostCost';
 import InputType from '../../../types/InputType';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import * as S from './CostSubmit.style';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent } from 'react';
 
 interface CostSubmitProps {
   onName: VoidFunction;
@@ -16,9 +16,7 @@ interface CostSubmitProps {
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
   const date = new Date();
   const { mutate: postCost } = usePostCost();
-  const [file, setFile] = useState<File | null>(values.file);
   const navigate = useNavigate();
-
   const formatDate = (date: Date) => {
     const year = date.getFullYear();
     const month = date.getMonth() + 1; 
@@ -28,13 +26,13 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
   };
   const curDate = formatDate(date);
   const handleSubmit = () => {
-    if(file){
+    if(values.file){
       const body = {
         date: curDate,
         amount: values.amount,
         description: values.description,
         note: values.note,
-        file: file,
+        file: values.file,
       };
       postCost(body, {
         onSuccess: (data) => {
@@ -50,7 +48,6 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
       note: e.target.value,
     }));
   };
-
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -58,8 +55,8 @@ const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
       setValues((prevValues) => ({
         ...prevValues,
         image: imgUrl,
+        file: file,
       }));
-      setFile(file);
     }
   };
 
