@@ -35,17 +35,28 @@ const SetMonthGoal = () => {
       ];
 
       const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const newValue = Number(e.target.value);
+        if (newValue >= 100000000) {
+            alert('값이 너무 큽니다. 8자리 이하로 입력해주세요.');
+            return;
+        }
         setValues((prevValues) => ({
-          ...prevValues,
-          price: Number(e.target.value),
+            ...prevValues,
+            price: newValue,
         }));
-      };
-      const handlePrice = (value: number) => {
+    };
+
+    const handlePrice = (value: number) => {
+        const newPrice = values.price + value;
+        if (newPrice >= 100000000) {
+            alert('값이 너무 큽니다. 8자리 이하로 입력해주세요.');
+            return;
+        }
         setValues((prevValues) => ({
-          ...prevValues,
-          price: values.price + value,
+            ...prevValues,
+            price: newPrice,
         }));
-      };
+    };
 
       const handleSubmit = () => {
         console.log("버튼 눌렸다.");
