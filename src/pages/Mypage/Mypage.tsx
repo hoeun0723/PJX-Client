@@ -1,7 +1,7 @@
-import React, { useState } from "react";n
+import React, { useState } from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-//import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
+import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 import { IcPen } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import { UserInfoProvider } from '../../context/User/UserInfoContext';
@@ -27,7 +27,7 @@ const Mypage = () => {
   };
   const handlePost = () => {
     postSummary({}, {
-      onSuccess: (data) => {
+      onSuccess: (data:any) => {
         setSummaryValues(prevState => ({
           ...prevState,
           amount: data['총 지출 금액'],
