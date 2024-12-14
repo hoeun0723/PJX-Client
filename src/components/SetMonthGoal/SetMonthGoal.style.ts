@@ -8,13 +8,13 @@ ${({ theme: { mixin}}) => mixin.flexBox({ direction: 'column', justify: 'flex-st
 `;
 
 export const InputBox = styled.div`
-  ${({ theme: { mixin}}) => mixin.flexBox({ align: 'center'})};
+  ${({ theme: { mixin}}) => mixin.flexBox({ align: 'center', justify: 'center'})};
   ${({ theme }) => theme.fonts.m_30_500};
-  width: 16rem;
+  width:100%;
 `;
 export const PriceInput = styled.input`
   min-width: 5rem;
-  width: auto;
+  width: 20rem;
   ${({ theme }) => theme.fonts.m_35_500};
   border: none;
   text-align: right;

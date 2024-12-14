@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { get, getAccessTokenLocalStorage } from '../../../apis/apiInstance';
-import { AxiosResponse } from 'axios';
+import { getAccessTokenLocalStorage } from '../../../apis/apiInstance';
+import axios, { AxiosResponse } from 'axios';
+import { SERVER_BASE_URL } from '../../../utils/login';
 
 interface ValidNicknameResponseType {
   available: boolean;
@@ -8,7 +9,7 @@ interface ValidNicknameResponseType {
 }
 
 export const getNickname = async (value: string): Promise<ValidNicknameResponseType> => {
-  const res: AxiosResponse = await get('/api/users/user-nickname-check', {
+  const res: AxiosResponse = await axios.get(`${SERVER_BASE_URL}/api/users/user-nickname-check`, {
     headers: {
       Authorization: `Bearer ${getAccessTokenLocalStorage()}`
     },

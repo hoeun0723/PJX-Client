@@ -1,5 +1,6 @@
 import mixin from './mixin';
 import { css } from 'styled-components';
+import '../assets/fonts/pretendard.css';
 
 const colors = {
   normal: {
