@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from './WriteType.style';
 import Title from '../../components/common/Title/Title';
-import { IcWriteAi, IcWriteSelf } from '../../assets/svg';
+import { IcBack, IcWriteAi, IcWriteSelf } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 
 const WriteType = () => {
@@ -12,8 +12,15 @@ const WriteType = () => {
 	const handleWriteSelf = () => {
     navigate('/write-cost', {state: {key: 'submit'}});
   };
+	const handlePrev = () => {
+		navigate('/home');
+	};
+
 	return (
 		<S.WriteTypeWrapper>
+			<S.PrevBox onClick={() => handlePrev()}>
+				<IcBack />
+			</S.PrevBox>
 			<Title>
 				🤖 <br />
 				지출 등록 방식을 <br />

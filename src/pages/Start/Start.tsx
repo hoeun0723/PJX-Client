@@ -12,7 +12,7 @@ function Start (){
     window.location.href = kakaoUrl;
   };
   const handleNavigate = () => {
-    navigate('/onboarding');
+    localStorage.getItem('status') === 'existing' ? navigate('/home') : navigate('/onboarding');
   };
 
   return(
