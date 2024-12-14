@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as S from './Mypage.style';
 import Title from './../../components/common/Title/Title';
-import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
+//import usePostSummary from '../../hooks/queries/mypage/usePostSummary';
 import { IcPen } from '../../assets/svg';
 import { useNavigate } from 'react-router-dom';
 import { UserInfoProvider } from '../../context/User/UserInfoContext';
