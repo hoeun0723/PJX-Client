@@ -13,6 +13,18 @@ const formatMonth = (date: Date | undefined) => {
     return `${year}-${month}`;
 };
 
+const formatCost = (cost:number) => {
+    if (cost >= 10000000) {
+        return `${Math.floor(cost / 10000000)}천만원`;
+    } else if (cost >= 1000000) {
+        return `${Math.floor(cost / 1000000)}백만원`;
+    } else if (cost >= 1000) {
+        return `${Math.floor(cost / 1000)}만원`;
+    } else {
+        return `${cost}원`;
+    }
+};
+
 const MonthlyCost = ({selectedDate}: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const { mutate: paidCost } = usePostPaid();
@@ -43,7 +55,7 @@ const MonthlyCost = ({selectedDate}: { selectedDate: Date}) => {
         <S.IcPenWrapper onClick={()=>navigate('/monthly-goal')}><IcPen width={'2.2rem'} height={'2.2rem'}/></S.IcPenWrapper>
             <S.MonthlyPaidWrapper>
                 <p ><span>{userNickname}</span> 이번달 지출</p>
-                {cost}원
+                {formatCost(cost)}
             </S.MonthlyPaidWrapper>
             <S.MonthlyGoalWrapper>
                 <p>목표 지출 <span> {maxGoal}만원</span></p>

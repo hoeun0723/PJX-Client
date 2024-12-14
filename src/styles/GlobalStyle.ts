@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import reset from 'styled-reset';
+import '../assets/fonts/pretendard.css';
 
 const GlobalStyle = createGlobalStyle`
 
