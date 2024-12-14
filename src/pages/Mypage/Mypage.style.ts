@@ -37,7 +37,8 @@ export const SummaryBox = styled.div`
   ${({ theme }) => theme.fonts.m_16_500};
   ${({ theme: { mixin } }) => mixin.flexCenter({})};
   width: 34.3rem;
-  height: 14.3rem;
+  height: auto;
+  min-height: 10rem;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.3);
   padding: 1.6rem 2rem;
@@ -45,9 +46,14 @@ export const SummaryBox = styled.div`
   p {
     ${({ theme: { mixin } }) => mixin.flexBox({ align: 'center' })};
     width: 30.3rem;
-    height: 2.9rem;
     gap: 0.4rem;
   };
+`;
+export const CommentText = styled.p`
+  color: ${({ theme }) => theme.colors.normal.black};
+  ${({ theme }) => theme.fonts.m_16_500};
+  letter-spacing: 0.12rem;
+  line-height: 1.2;
 `;
 export const SummarySpan = styled.span<{$isDays: boolean}>`
   color: ${({ theme, $isDays }) => ($isDays ? theme.colors.primary.default : theme.colors.normal.black)};

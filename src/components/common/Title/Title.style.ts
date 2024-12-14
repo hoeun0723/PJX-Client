@@ -7,4 +7,5 @@ export const TitleWrapper = styled.div<{$isLarge: boolean}>`
   line-height: 3.25rem;
   letter-spacing: -0.24px;
   gap: 1rem;
+  padding-left: 2rem;
 `;

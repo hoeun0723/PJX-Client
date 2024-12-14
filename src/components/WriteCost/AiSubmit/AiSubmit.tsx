@@ -5,6 +5,7 @@ import { IcPlus } from '../../../assets/svg';
 import BtnLarge from '../../common/Button/LargeButton/BtnLarge';
 import InputType from '../../../types/InputType';
 import usePostReceiptAnalyze from '../../../hooks/queries/receipt/usePostReceiptAnalyze';
+import Loading from '../../../pages/Loading/Loading';
 
 interface AiSubmitProps {
   setValues: React.Dispatch<React.SetStateAction<InputType>>;
@@ -14,8 +15,7 @@ interface AiSubmitProps {
 const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
   const [imgUrl, setImgUrl] = useState('');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const { mutate: postRecipt } = usePostReceiptAnalyze();
-
+  const { isPending, mutate: postRecipt } = usePostReceiptAnalyze();
 
   const onFile = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -62,7 +62,7 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
             }));
           onState('submit');
           console.log(response.result)
-        }
+        },
       });
       
     }
@@ -74,6 +74,9 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
 
   return(
     <S.AiSubmitWrapper>
+      {
+        isPending && <Loading>AI 지출 분석중</Loading>
+      }
       <S.HorizontalLine />
       <S.TextBox>
           영수증 사진을 촬영해주세요. 
@@ -86,10 +89,10 @@ const AiSubmit = ({ setValues, onState }: AiSubmitProps) => {
           imgUrl !== ''? (
             <S.PreviewImage src={imgUrl} alt='preview' />
           ) : 
-          <>
+          <S.AddBox>
             <IcPlus />
             영수증 사진 추가 (0/1)
-          </>  
+          </S.AddBox>  
         }
       </S.Label>
       <S.FileInput 

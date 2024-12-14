@@ -35,16 +35,24 @@ export const Label = styled.label`
   color: ${({ theme }) => theme.colors.gray[500]};
   text-align: center;
   width: 34.3rem;
-  height: 29.2rem;
+  height: auto;
   border-radius: 10px;
   gap: 1rem;
+`;
+export const AddBox = styled.div`
+  height: 29.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `;
 export const FileInput = styled.input`
   display: none;
 `;
 export const PreviewImage = styled.img`
   width: 34.3rem;
-  height: 29.2rem;
+  height: auto;
+  object-fit: contain;
 `;
 export const ButtonField = styled.div`
   ${({ theme: { mixin}}) => mixin.flexCenter({})};

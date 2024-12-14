@@ -32,6 +32,9 @@ const CostPrice = ({ amount, description, setValues, onPrev}: CostPriceProps) =>
   ];
 
   const onChange = (e: ChangeEvent<HTMLInputElement>) => {
+    if(isNaN(Number(e.target.value))){
+      return;
+    }
     setValues((prevValues) => ({
       ...prevValues,
       amount: Number(e.target.value),
