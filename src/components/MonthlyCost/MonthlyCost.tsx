@@ -19,7 +19,7 @@ const formatCost = (cost:number) => {
     } else if (cost >= 1000000) {
         return `${Math.floor(cost / 1000000)}백만원`;
     } else if (cost >= 1000) {
-        return `${Math.floor(cost / 1000)}만원`;
+        return `${Math.floor(cost / 10000)}만원`;
     } else {
         return `${cost}원`;
     }
@@ -58,7 +58,7 @@ const MonthlyCost = ({selectedDate}: { selectedDate: Date}) => {
                 {formatCost(cost)}
             </S.MonthlyPaidWrapper>
             <S.MonthlyGoalWrapper>
-                <p>목표 지출 <span> {maxGoal}만원</span></p>
+                <p>목표 지출 <span> {maxGoal}원</span></p>
             </S.MonthlyGoalWrapper>
             <S.ProgressBarWrapper>
                 <S.ProgressBarFill $widthpercentage={handleAmount} />
