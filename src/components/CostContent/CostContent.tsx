@@ -26,15 +26,7 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     const navigate = useNavigate();
     const currentDay = getDayName(selectedDate);
     const { mutate: dayPaid } = usePostDayPaid();
-    // const paidContentExample = {
-    //     note: "바이바이 샐러드",
-    //     amount: 42000,
-    //     description: "집 근처에 있는 샐러드 가게에 갔는데 안사먹을 수가 없었다...진짜 대박 맛집이었어...애들아 다들 먹어....ㅋㅋㅋ",
-    //     images: [
-    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11", // 첫 번째 이미지 URL
-    //         "https://github.com/user-attachments/assets/aec0820f-3805-4951-876f-8ae8912daf11"  // 두 번째 이미지 URL
-    //     ]
-    // };
+ 
     const [spendingList, setSpendingList] = useState<
     Array<{
         note: string;
@@ -47,15 +39,15 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
         if (!selectedDate) return;
 
     const formattedDate = formatDate(selectedDate); // 날짜 변환
-    console.log("내가 선택한 날짜:", formattedDate); // 변환된 날짜 확인
+    localStorage.setItem('selectedDate', formattedDate); // 로컬 스토리지에 저장
 
     dayPaid(formattedDate, {
         onSuccess: (data) => {
-            console.log("Response Data:", data);
+            console.log(data);
             if (data && data.spendingList && data.spendingList.length > 0) {
                 setSpendingList(data.spendingList);
             } else {
-                setSpendingList([]); // 데이터가 없는 경우 빈 배열로 설정
+                setSpendingList([]);
             }
         },
         onError: (error) => {
