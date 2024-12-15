@@ -44,16 +44,27 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
     }>
 >([]);
     useEffect(()=>{
-        dayPaid(formatDate(selectedDate), {
-            onSuccess: (data) => {
-                console.log(data);
-                if (data.spendingList && data.spendingList.length > 0) {
-                    setSpendingList(data.spendingList);
-                } else {
-                    setSpendingList([]); // 데이터가 없는 경우 빈 배열로 설정
-                }
-            },
-        });
+        if (!selectedDate) return;
+        console.log("내가 선택한 날짜"+selectedDate);
+
+    // formattedDate를 미리 계산
+    const formattedDate = formatDate(selectedDate);
+
+    // API 요청
+    dayPaid(formattedDate, {
+        onSuccess: (data) => {
+            console.log(data);
+            if (data && data.spendingList && data.spendingList.length > 0) {
+                setSpendingList(data.spendingList);
+            } else {
+                setSpendingList([]); // 데이터가 없는 경우 빈 배열로 설정
+            }
+        },
+        onError: (error) => {
+            console.error("Error fetching spending data:", error);
+            setSpendingList([]); // 에러 발생 시 빈 배열 설정
+        },
+    });
     },[selectedDate, dayPaid])
     
 
@@ -65,11 +76,9 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
                 <S.Day><p>오늘 {currentDay}</p>지출 한줄평을 작성해보세요.</S.Day>
                 {hasPaidContent && <EmotionSelect selectedDate={selectedDate} />}
             </S.DayWrapper>
-            {!hasPaidContent && (
                 <S.AddContentBtn onClick={() => navigate('/write-type')}>
                     + 지출추가
                 </S.AddContentBtn>
-            )}
             {hasPaidContent &&
                 spendingList.map((item, index) => (
                     <PaidContent
