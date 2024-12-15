@@ -14,17 +14,21 @@ interface CostSubmitProps {
 }
 
 const CostSubmit = ({ onName, onCost, values, setValues }: CostSubmitProps) => {
-  const date = new Date();
   const { mutate: postCost } = usePostCost();
   const navigate = useNavigate();
-  const formatDate = (date: Date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1; 
-    const day = date.getDate();
 
-    return `${year}-${month < 0 ? '0' + month : month}-${day < 10 ? '0' + day : day}`;
+  // 로컬 스토리지에서 날짜 불러오기
+  const getStoredDate = () => {
+    const storedDate = localStorage.getItem('selectedDate');
+    if (storedDate) {
+      return storedDate;
+    }
+    // 로컬 스토리지에 값이 없으면 현재 날짜 반환
+    const today = new Date();
+    return `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
   };
-  const curDate = formatDate(date);
+
+  const curDate = getStoredDate();
   const handleSubmit = () => {
     if(values.file){
       const body = {
