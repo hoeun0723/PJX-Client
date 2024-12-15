@@ -45,15 +45,13 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
 >([]);
     useEffect(()=>{
         if (!selectedDate) return;
-        console.log("내가 선택한 날짜"+selectedDate);
 
-    // formattedDate를 미리 계산
-    const formattedDate = formatDate(selectedDate);
+    const formattedDate = formatDate(selectedDate); // 날짜 변환
+    console.log("내가 선택한 날짜:", formattedDate); // 변환된 날짜 확인
 
-    // API 요청
     dayPaid(formattedDate, {
         onSuccess: (data) => {
-            console.log(data);
+            console.log("Response Data:", data);
             if (data && data.spendingList && data.spendingList.length > 0) {
                 setSpendingList(data.spendingList);
             } else {
@@ -62,7 +60,7 @@ const CostContent = ({ selectedDate }: { selectedDate: Date}) => {
         },
         onError: (error) => {
             console.error("Error fetching spending data:", error);
-            setSpendingList([]); // 에러 발생 시 빈 배열 설정
+            setSpendingList([]);
         },
     });
     },[selectedDate, dayPaid])
