@@ -27,7 +27,7 @@ const Mypage = () => {
   };
   const handlePost = () => {
     postSummary({}, {
-      onSuccess: (data) => {
+      onSuccess: (data:any) => {
         setSummaryValues(prevState => ({
           ...prevState,
           amount: data['총 지출 금액'],
